@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# GitHub Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Note: This project is currently <big>under development </big> and not ready for use.**
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project aims to create a blog powered by the GitHub API. Each issue opened in this repository will automatically become a post in the blog.
 
-## Expanding the ESLint configuration
+## Project Status
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+🚧 **Work in Progress** 🚧
 
-- Configure the top-level `parserOptions` property like this:
+This blog is currently in development, and new features are being added to enhance its functionality. Please stay tuned for updates.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Getting Started
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+As development progresses, instructions for setting up and running the project will be provided here.
+
+## Contributing
+
+Contributions are welcome! If you're interested in contributing to the project, please contact me.
+
+<small>
+
+
+made with ❤️ by (brunaporato)[https://linkedin.com/in/brunaporato]
