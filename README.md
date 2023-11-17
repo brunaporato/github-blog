@@ -20,7 +20,6 @@ As development progresses, instructions for setting up and running the project w
 
 Contributions are welcome! If you're interested in contributing to the project, please contact me.
 
-<small>
+<!-- <small> -->
 
-
-made with ❤️ by (brunaporato)[https://linkedin.com/in/brunaporato]
+made with ❤️ by  [brunaporato](https://linkedin.com/in/brunaporato)
