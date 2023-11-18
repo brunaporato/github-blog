@@ -5,10 +5,6 @@ export function Blog() {
   return (
     <BlogContainer>
       <ProfileCard />
-
-      {/* 
-      TODO: continue profilecard component - stylization
-      */}
     </BlogContainer>
   )
 }
