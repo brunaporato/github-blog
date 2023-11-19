@@ -5,6 +5,7 @@ export function PostCard() {
     <PostCardContainer>
       <h1>Title</h1>
       <span>Há x dias</span>
+
       <p>
         Programming languages all have built-in data structures, but these often
         differ from one language to another. This article attempts to list the

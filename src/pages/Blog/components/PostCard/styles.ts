@@ -6,7 +6,7 @@ export const PostCardContainer = styled.div`
   padding: 2rem;
 
   height: 16.25rem;
-  width: 20rem;
+  width: 26rem;
 
   flex-shrink: 0;
 
@@ -14,6 +14,8 @@ export const PostCardContainer = styled.div`
   grid-template-areas:
     'title time'
     'content content';
+
+  grid-template-rows: 0.5fr auto;
   row-gap: 1.25rem;
 
   h1 {
@@ -26,18 +28,14 @@ export const PostCardContainer = styled.div`
     line-height: 160%;
   }
 
-  /* 
-    TODO: descobrir como deixar o texto com "..."
-    ao final mesmo quebrando as linhas
-  */
-
   p {
-    flex-shrink: 0;
-    max-width: 22rem;
-    max-height: 7rem;
-
+    max-height: 8rem;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    word-wrap: break-word;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
   }
 `
