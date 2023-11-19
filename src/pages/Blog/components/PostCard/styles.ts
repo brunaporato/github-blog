@@ -22,6 +22,12 @@ export const PostCardContainer = styled(NavLink)`
   grid-template-rows: 0.5fr auto;
   row-gap: 1.25rem;
 
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
   h1 {
     font-size: 1.25rem;
     line-height: 160%;
