@@ -1,9 +1,13 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const PostCardContainer = styled.div`
+export const PostCardContainer = styled(NavLink)`
   background: ${(props) => props.theme['base-post']};
   border-radius: 10px;
   padding: 2rem;
+
+  text-decoration: none;
+  color: ${(props) => props.theme['base-text']};
 
   height: 16.25rem;
   width: 26rem;

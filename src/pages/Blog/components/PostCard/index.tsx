@@ -2,7 +2,7 @@ import { PostCardContainer } from './styles'
 
 export function PostCard() {
   return (
-    <PostCardContainer>
+    <PostCardContainer to="/">
       <h1>Title</h1>
       <span>Há x dias</span>
 
