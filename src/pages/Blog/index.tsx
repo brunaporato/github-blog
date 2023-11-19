@@ -7,7 +7,13 @@ export function Blog() {
   return (
     <BlogContainer>
       <ProfileCard />
-      <SearchInput />
+      <section className="search">
+        <div className="top">
+          <h2>Publicações</h2>
+          <span>X publicações</span>
+        </div>
+        <SearchInput />
+      </section>
       <PostCard />
     </BlogContainer>
   )
