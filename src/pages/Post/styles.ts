@@ -11,11 +11,11 @@ export const PostContainer = styled.div`
     gap: 1.5rem;
     align-items: center;
 
-    .code {
+    /* .code {
       background: ${(props) => props.theme['base-post']};
       border-radius: 2px;
       padding: 1rem;
       align-self: stretch;
-    }
+    } */
   }
 `
