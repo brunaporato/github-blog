@@ -32,6 +32,7 @@ export const ProfileImg = styled.div`
 
 export const UserInfo = styled.div`
   display: grid;
+  width: 100%;
   grid-template-areas:
     'title github'
     'description description'

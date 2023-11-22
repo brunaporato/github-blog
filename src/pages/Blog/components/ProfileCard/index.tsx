@@ -2,40 +2,63 @@ import { ProfileCardContainer, ProfileImg, UserInfo } from './styles'
 import { SiGithub } from 'react-icons/si'
 import { RiBuilding4Fill } from 'react-icons/ri'
 import { FaUserGroup, FaArrowUpRightFromSquare } from 'react-icons/fa6'
+import { useEffect, useState } from 'react'
+
+interface UserDataType {
+  login: string
+  avatar_url: string
+  html_url: string
+  name: string
+  company: string
+  bio: string
+  followers: number
+}
 
 export function ProfileCard() {
+  const [userData, setUserData] = useState<UserDataType>({
+    login: '',
+    avatar_url: '',
+    html_url: '',
+    name: '',
+    company: '',
+    bio: '',
+    followers: 0,
+  })
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const response = await fetch(`https://api.github.com/users/brunaporato`)
+      const data = await response.json()
+      setUserData(data)
+    }
+
+    fetchUserData()
+  }, [])
+
   return (
     <ProfileCardContainer>
       <ProfileImg>
-        <img src="https://github.com/brunaporato.png" alt="" />
+        <img src={userData.avatar_url} alt="" />
       </ProfileImg>
 
       <UserInfo>
-        <h2>Bruna Porato</h2>
-        <a
-          href="http://github.com/brunaporato"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <h2>{userData.name}</h2>
+        <a href={userData.html_url} target="_blank" rel="noreferrer">
           GITHUB <FaArrowUpRightFromSquare />
         </a>
-        <p>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </p>
+        <p>{userData.bio}</p>
         <div className="icons">
           <section className="username">
             <SiGithub />
-            brunaporato
+            {userData.login}
           </section>
           <section className="company">
             <RiBuilding4Fill />
-            ByteCriativo;
+            {userData.company}
           </section>
           <section className="followers">
             <FaUserGroup />
-            32 seguidores
+            {userData.followers} seguidores
           </section>
         </div>
       </UserInfo>
