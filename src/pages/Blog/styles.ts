@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const BlogContainer = styled.div`
   width: 100%;
-  padding: 0 18rem;
+  padding: 0 18rem 3rem;
 
   .search {
     display: flex;
@@ -30,5 +30,11 @@ export const BlogContainer = styled.div`
         color: ${(props) => props.theme['base-span']};
       }
     }
+  }
+
+  .cards {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   }
 `
