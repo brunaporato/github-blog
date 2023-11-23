@@ -4,6 +4,7 @@ import { GlobalStyle } from './styles/global'
 import { Header } from './components/Header'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
+import { IssueContextProvider } from './contexts/IssueContext'
 
 export function App() {
   return (
@@ -11,7 +12,9 @@ export function App() {
       <GlobalStyle />
       <Header />
       <BrowserRouter>
-        <Router />
+        <IssueContextProvider>
+          <Router />
+        </IssueContextProvider>
       </BrowserRouter>
     </ThemeProvider>
   )

@@ -1,35 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { PostCard } from './components/PostCard'
 import { ProfileCard } from './components/ProfileCard'
 import { SearchInput } from './components/SearchInput'
 import { BlogContainer } from './styles'
-
-interface IssueType {
-  id: number
-  number: number
-  title: string
-  created_at: string
-  body: string
-}
+import { IssueContext } from '../../contexts/IssueContext'
 
 export function Blog() {
-  const [issues, setIssues] = useState<IssueType[]>([])
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          'https://api.github.com/repos/brunaporato/github-blog/issues',
-        )
-        const data = await response.json()
-        setIssues(data)
-      } catch (error) {
-        console.error('Erro ao obter as issues:', error)
-      }
-    }
-
-    fetchData()
-  }, [])
+  const { issues } = useContext(IssueContext)
 
   return (
     <BlogContainer>

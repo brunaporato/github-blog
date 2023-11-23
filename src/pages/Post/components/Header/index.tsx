@@ -7,47 +7,51 @@ import {
   FaComment,
 } from 'react-icons/fa6'
 import { SiGithub } from 'react-icons/si'
-import { PostType } from '../..'
 import { formatDistanceToNow } from 'date-fns'
+import { IssueType } from '../../../../contexts/IssueContext'
 
 interface HeaderProps {
-  post: PostType
+  post: IssueType | undefined
 }
 
 export function Header({ post }: HeaderProps) {
-  const date = new Date(post.created_at)
+  const date = post !== undefined ? new Date(post.created_at) : new Date()
 
   const formattedDate = formatDistanceToNow(date, {
     addSuffix: true,
   })
 
   return (
-    <HeaderContainer>
-      <section className="links-top">
-        <NavLink to="/">
-          <IoIosArrowBack />
-          voltar
-        </NavLink>
-        <NavLink to={post.html_url}>
-          ver no github
-          <FaArrowUpRightFromSquare />
-        </NavLink>
-      </section>
-      <h1>{post.title}</h1>
-      <section className="icons">
-        <div className="user">
-          <SiGithub />
-          <span>{post.user.login}</span>
-        </div>
-        <div className="time">
-          <FaCalendarDay />
-          <span>{formattedDate}</span>
-        </div>
-        <div className="comments">
-          <FaComment />
-          <span>{post.comments} comments</span>
-        </div>
-      </section>
-    </HeaderContainer>
+    <header>
+      {post && (
+        <HeaderContainer>
+          <section className="links-top">
+            <NavLink to="/">
+              <IoIosArrowBack />
+              voltar
+            </NavLink>
+            <NavLink to={post.html_url}>
+              ver no github
+              <FaArrowUpRightFromSquare />
+            </NavLink>
+          </section>
+          <h1>{post.title}</h1>
+          <section className="icons">
+            <div className="user">
+              <SiGithub />
+              <span>{post.user.login}</span>
+            </div>
+            <div className="time">
+              <FaCalendarDay />
+              <span>{formattedDate}</span>
+            </div>
+            <div className="comments">
+              <FaComment />
+              <span>{post.comments} comments</span>
+            </div>
+          </section>
+        </HeaderContainer>
+      )}
+    </header>
   )
 }
