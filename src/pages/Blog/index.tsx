@@ -51,6 +51,7 @@ export function Blog() {
               title={issue.title}
               body={issue.body}
               date={issue.created_at}
+              id={issue.number}
             />
           )
         })}

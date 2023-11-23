@@ -9,13 +9,6 @@ export const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    align-items: center;
-
-    /* .code {
-      background: ${(props) => props.theme['base-post']};
-      border-radius: 2px;
-      padding: 1rem;
-      align-self: stretch;
-    } */
+    align-items: flex-start;
   }
 `

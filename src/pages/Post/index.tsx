@@ -1,25 +1,53 @@
+import { useParams } from 'react-router-dom'
 import { Header } from './components/Header'
 import { PostContainer } from './styles'
 import Markdown from 'react-markdown'
+import { useEffect, useState } from 'react'
+
+export interface PostType {
+  body: string
+  html_url: string
+  title: string
+  comments: number
+  created_at: string
+  user: { login: string }
+}
 
 export function Post() {
+  const date = String(new Date())
+
+  const [post, setPost] = useState<PostType>({
+    body: '',
+    html_url: '',
+    title: '',
+    comments: 0,
+    created_at: date,
+    user: { login: '' },
+  })
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    async function fetchPost() {
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/brunaporato/github-blog/issues/${id}`,
+        )
+        const data = await response.json()
+        setPost(data)
+      } catch (error) {
+        console.error('Erro ao obter as issues:', error)
+      }
+    }
+
+    fetchPost()
+  }, [id])
+
   return (
     <PostContainer>
-      <Header />
+      <Header post={post} />
       <main>
-        <Markdown>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in JavaScript and what
-          properties they have. These can be used to build other data
-          structures. Wherever possible, comparisons with other languages are
-          drawn. Dynamic typing JavaScript is a loosely typed and dynamic
-          language. Variables in JavaScript are not directly associated with any
-          particular value type, and any variable can be assigned (and
-          re-assigned) values of all types: let foo = 42; // foo is now a number
-          foo = ‘bar’; // foo is now a string foo = true; // foo is now a
-          boolean
-        </Markdown>
+        <Markdown>{post.body}</Markdown>
       </main>
     </PostContainer>
   )
