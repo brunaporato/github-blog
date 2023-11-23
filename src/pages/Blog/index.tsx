@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { PostCard } from './components/PostCard'
 import { ProfileCard } from './components/ProfileCard'
 import { SearchInput } from './components/SearchInput'
@@ -7,7 +7,11 @@ import { IssueContext } from '../../contexts/IssueContext'
 
 export function Blog() {
   const { issues } = useContext(IssueContext)
+  const [search, setSearch] = useState('')
 
+  const filteredIssues = issues.filter((issue) =>
+    issue.body.toLowerCase().includes(search.toLowerCase()),
+  )
   return (
     <BlogContainer>
       <ProfileCard />
@@ -18,10 +22,10 @@ export function Blog() {
             {issues.length} {issues.length > 1 ? 'publicações' : 'publicação'}
           </span>
         </div>
-        <SearchInput />
+        <SearchInput onSearch={setSearch} />
       </section>
       <section className="cards">
-        {issues.map((issue) => {
+        {filteredIssues.map((issue) => {
           return (
             <PostCard
               key={issue.number}
