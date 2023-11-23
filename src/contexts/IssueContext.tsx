@@ -23,11 +23,17 @@ interface IssueContextProviderProps {
 export function IssueContextProvider({ children }: IssueContextProviderProps) {
   const [issues, setIssues] = useState<IssueType[]>([])
 
+  // Change it to your username
+  const username = 'brunaporato'
+
+  // Change it to the repository you want to fetch issues from
+  const repo = 'github-blog'
+
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(
-          'https://api.github.com/repos/brunaporato/github-blog/issues',
+          `https://api.github.com/repos/${username}/${repo}/issues`,
         )
         const data = await response.json()
         setIssues(data)
